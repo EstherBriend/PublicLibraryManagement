@@ -1,6 +1,7 @@
 <?php
 
-enum LoanStatus : string{
+enum LoanStatus : string
+{
     case LATE = 'Late';
     case ONGOING = 'OnGoing';
 

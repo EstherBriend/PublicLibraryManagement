@@ -1,5 +1,6 @@
 <?php
-enum AvailabilityStatus :string{
+enum AvailabilityStatus :string
+{
     case AVAILABLE = 'Available';
     case UNAVAILABLE = 'Unavailable';
 }

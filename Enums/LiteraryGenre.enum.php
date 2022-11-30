@@ -1,6 +1,7 @@
 <?php
 
-enum LiteraryGenre : string{
+enum LiteraryGenre : string
+{
     case FICTION = 'Fiction';
     case HUMANITIES = 'Humanities';
     case SCIENCE = 'Science';
