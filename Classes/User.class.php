@@ -6,6 +6,7 @@ class user{
     private $userEmail;
     private $userPassword;
 
+    //--------------- Getter and Setter  -------------------
      public function get_userFirstName(){
         return $this->userFirstName;
      }

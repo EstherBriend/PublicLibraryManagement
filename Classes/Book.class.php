@@ -7,6 +7,8 @@ class Book{
     private $bookEditor;
     private $bookAvailabilityStatus;
 
+    //--------------- Getter and Setter  -------------------
+    
     public function get_bookId(){
         return $this->bookId;
     }

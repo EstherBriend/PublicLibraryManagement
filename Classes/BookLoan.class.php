@@ -6,6 +6,8 @@ class BookLoan{
     private $loanDate;
     private $loanStatus;
 
+    //--------------- Getter and Setter  -------------------
+    
     public function get_userId(){
         return $this->residentId;
     }

@@ -7,6 +7,7 @@ class Address{
    private $province;
    private $postalCode;
 
+   //--------------- Getter and Setter  -------------------
    public function get_streeNum(){
     return $this->streetNum;
    }
