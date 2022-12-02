@@ -3,6 +3,7 @@
 class LibraryInventory{
     private $libraryId;
     private $bookId;
+    private $availabilityStatus;
 
     public function get_libraryId(){
         return $this->libraryId;
@@ -18,6 +19,14 @@ class LibraryInventory{
 
     public function set_bookId(Book $book){
         $this->bookId = $book->get_bookId();
+    }
+
+    public function get_availabilityStatus(){
+        return $this->availabilityStatus;
+    }
+
+    public function set_availabitityStatus(AvailabilityStatus $availability){
+        $this->availabilityStatus = $availability;
     }
 
 }

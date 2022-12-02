@@ -1,7 +1,7 @@
 <?php
-enum AvailabilityStatus :string
+class AvailabilityStatus
 {
-    case AVAILABLE = 'Available';
-    case UNAVAILABLE = 'Unavailable';
+    public const AVAILABLE = 'Available';
+    public const UNAVAILABLE = 'Unavailable';
 }
 ?>

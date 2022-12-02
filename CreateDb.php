@@ -84,25 +84,6 @@ try{
     echo "<br>Connection Failed : ".$e->getMessage();
 }
 
-//--------------- Create table Loan  -------------------
-try{
-    $sqlCreateTableBookLoan = "CREATE TABLE IF NOT EXISTS ".$conn->get_dbName().".".TableName::LOAN."(
-        loanId INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        residentId INT UNSIGNED,
-        bookId INT UNSIGNED,
-        loanDate DATE,
-        returnDate DATE,
-        loanStatus VARCHAR(50),
-        FOREIGN KEY(residentId) REFERENCES ".$conn->get_dbName().".".TableName::RESIDENT."(residentId),
-        FOREIGN KEY(bookId) REFERENCES ".$conn->get_dbName().".".TableName::BOOK."(bookId));";
-
-    $conn->connect()->exec($sqlCreateTableBookLoan);
-    echo "<br>Table created successfully<br>";
-
-}catch(PDOException $e){
-    echo "<br>Connection Failed : ".$e->getMessage();
-}
-
 //--------------- Create table Library  -------------------
 try{
     $sqlCreateTableLibrary = "CREATE TABLE IF NOT EXISTS ".$conn->get_dbName().".".TableName::LIBRARY."(
@@ -124,6 +105,7 @@ try{
         inventoryId INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         libraryId INT UNSIGNED,
         bookId INT UNSIGNED,
+        availabilityStatus VARCHAR(50),
         FOREIGN KEY(libraryId) REFERENCES ".$conn->get_dbName().".".TableName::LIBRARY."(libraryId),
         FOREIGN KEY(bookId) REFERENCES ".$conn->get_dbName().".".TableName::BOOK."(bookId));";
 
@@ -133,6 +115,29 @@ try{
 }catch(PDOException $e){
     echo "<br>Connection Failed : ".$e->getMessage();
 }
+
+//--------------- Create table Loan  -------------------
+try{
+    $sqlCreateTableBookLoan = "CREATE TABLE IF NOT EXISTS ".$conn->get_dbName().".".TableName::LOAN."(
+        loanId INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        residentId INT UNSIGNED,
+        inventoryId INT UNSIGNED,
+        loanDate DATE,
+        returnDate DATE,
+        loanStatus VARCHAR(50),
+        FOREIGN KEY(residentId) REFERENCES ".$conn->get_dbName().".".TableName::RESIDENT."(residentId),
+        FOREIGN KEY(inventoryId) REFERENCES ".$conn->get_dbName().".".TableName::INVENTORY."(inventoryId));";
+
+    $conn->connect()->exec($sqlCreateTableBookLoan);
+    echo "<br>Table created successfully<br>";
+
+}catch(PDOException $e){
+    echo "<br>Connection Failed : ".$e->getMessage();
+}
+
+
+
+
 
 
 

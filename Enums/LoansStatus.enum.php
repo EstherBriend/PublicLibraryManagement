@@ -1,15 +1,8 @@
 <?php
 
-enum LoanStatus : string
+class LoanStatus
 {
-    case LATE = 'Late';
-    case ONGOING = 'OnGoing';
-
-    public function color() : string{
-        return match($this){
-            self::LATE => 'red',   
-            self::ONGOING =>'green'
-        };
-    }
+    public const LATE = 'Late';
+    public const ONGOING = 'OnGoing';
 }
 ?>

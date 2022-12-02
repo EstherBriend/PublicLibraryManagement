@@ -1,12 +1,12 @@
 <?php
 
-enum LiteraryGenre : string
+class LiteraryGenre
 {
-    case FICTION = 'Fiction';
-    case HUMANITIES = 'Humanities';
-    case SCIENCE = 'Science';
-    case PERIODICAL = 'Periodical';
-    case WELLBEING = 'WellBeing';
+    public const  FICTION = 'Fiction';
+    public const  HUMANITIES = 'Humanities';
+    public const  SCIENCE = 'Science';
+    public const  PERIODICAL = 'Periodical';
+    public const  WELLBEING = 'WellBeing';
 }
 
 ?>

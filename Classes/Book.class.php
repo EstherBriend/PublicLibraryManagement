@@ -5,7 +5,7 @@ class Book{
     private $bookTitle;
     private $bookCategory;
     private $bookEditor;
-    private $bookAvailabilityStatus;
+
 
     //--------------- Getter and Setter  -------------------
     
@@ -43,14 +43,6 @@ class Book{
 
     public function set_bookEditor($editor){
         $this->bookEditor = $editor;
-    }
-
-    public function get_bookAvailabilityStatus(){
-        return $this->bookAvailabilityStatus;
-    }
-
-    public function set_bookAvailabitityStatus(AvailabilityStatus $availability){
-        $this->bookAvailabilityStatus = $availability;
     }
 }
 ?>
