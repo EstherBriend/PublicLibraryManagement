@@ -1,5 +1,5 @@
 <?php
-include('Autoload.php');
+include('Autoload.inc.php');
 include("./Enums/TableName.enum.class.php");
 include("./Enums/AvailabilityStatus.enum.php");
 include("./Enums/LiteraryGenre.enum.php");
@@ -10,16 +10,16 @@ $conn = new Connection();
 //--------------- Insert data into Address ---------------
 try {
     $sqlInsertAddress1 = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADDRESS. "(
-        streetNum, streetName, appNum, city, province, postalCode) VALUES (465,'Avenue du MontRoyal','','Montreal','QC','H2J 1W3')";
+        streetNum, streetName, appNum, city, province, postalCode) VALUES (465,'Avenue du MontRoyal','-','Montreal','QC','H2J 1W3')";
 
     $sqlInsertAddress2 = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADDRESS. "(
-        streetNum, streetName, appNum, city, province, postalCode) VALUES (3131,'Boulevard Rosemont','','Montreal','QC','H1Y 1M4')";
+        streetNum, streetName, appNum, city, province, postalCode) VALUES (3131,'Boulevard Rosemont','-','Montreal','QC','H1Y 1M4')";
 
     $sqlInsertAddress3 = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADDRESS. "(
         streetNum, streetName, appNum, city, province, postalCode) VALUES (278,'Rue Sherbrooke O','Ap 2005','Montreal','QC','H2X 1X9')";
 
     $sqlInsertAddress4 = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADDRESS. "(
-            streetNum, streetName, appNum, city, province, postalCode) VALUES (801,'Rue Sherbrooke O','','Montreal','QC','H3A 0B8')";
+            streetNum, streetName, appNum, city, province, postalCode) VALUES (801,'Rue Sherbrooke O','-','Montreal','QC','H3A 0B8')";
 
     $sqlInsertAddress5 = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADDRESS. "(
             streetNum, streetName, appNum, city, province, postalCode) VALUES (549,'Rue de la Commune O','Ap 115','Montreal','QC','H3C 5X5')";
@@ -28,7 +28,7 @@ try {
             streetNum, streetName, appNum, city, province, postalCode) VALUES (87,'Rue Prince','Ap 12','Montreal','QC','H3C 2M7')";
 
     $sqlInsertAddress7 = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADDRESS. "(
-            streetNum, streetName, appNum, city, province, postalCode) VALUES (120,'Blvd Robert-Bourassa','','Montreal','QC','H3C 2L4')";
+            streetNum, streetName, appNum, city, province, postalCode) VALUES (120,'Blvd Robert-Bourassa','-','Montreal','QC','H3C 2L4')";
 
     $conn->connect()->exec($sqlInsertAddress1);
     $conn->connect()->exec($sqlInsertAddress2);
