@@ -23,7 +23,7 @@ try{
         addressId INT UNSIGNED  AUTO_INCREMENT PRIMARY KEY,
         streetNum INT UNSIGNED NOT NULL,
         streetName VARCHAR(50) NOT NULL,
-        appNum VARCHAR(10) NOT NULL,
+        appNum VARCHAR(10),
         city VARCHAR(50) NOT NULL,
         province VARCHAR(50) NOT NULL,
         postalCode VARCHAR (25) NOT NULL)";

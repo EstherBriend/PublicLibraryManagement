@@ -1,9 +1,7 @@
 <?php
 
-spl_autoload_register("autoload");
-
 function autoload($className){
-    $path = "./Classes/";
+    $path = "Classes/";
     $extension = ".class.php";
     $fileName = $path.$className.$extension;
 
@@ -15,5 +13,7 @@ function autoload($className){
 
 
 }
+
+spl_autoload_register("autoload");
 
 ?>

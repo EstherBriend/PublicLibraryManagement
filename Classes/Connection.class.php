@@ -4,6 +4,9 @@ class Connection{
    private $userName = "root";
    private $password = "";
    private $dbName = "Public_Library_Management";
+   public const URL = "http://localhost/PublicLibraryManagement/Navigation/";
+
+
 
    //--------------- Getter -------------------
    public function get_host(){
