@@ -7,6 +7,8 @@ include_once('../Classes/User.class.php');
 
 ?>
 
+<link rel="stylesheet" href="../CSSFiles/form.css">
+
 <!----------------------- Login Form ------------------------->
 
 <form name="newAccountForm" method="post" action="newAccount.php">
@@ -77,7 +79,7 @@ include_once('../Classes/User.class.php');
         </tr>
         <tr>
             <td>
-                <h3>Login information</h3>
+                <h4>Login information</h4>
             </td>
         </tr>
         <tr>
@@ -89,12 +91,14 @@ include_once('../Classes/User.class.php');
             <td><input type="Password" size=25 name="userPassword"></td>
         </tr>
         <tr>
-            <td><input type="submit" size=25 name="btnSubmit" onclick="return check(this.form)" value="Sign Up"></td>
+            <td colspan="2"><input type="submit" size=25 name="btnSubmit" onclick="return check(this.form)" value="Sign Up"></td>
         </tr>
     </table>
+    <a href="http://localhost/PublicLibraryManagement/Navigation/login.php"><p>Go back to login page</p></a>
+    
 </form>
 <br><br>
-<a href="http://localhost/PublicLibraryManagement/Navigation/login.php">Go back to login page</a>
+
 
 
 
