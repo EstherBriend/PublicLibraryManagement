@@ -74,8 +74,7 @@ try{
         bookAuthor VARCHAR(50) NOT NULL,
         bookTitle VARCHAR(50) NOT NULL,
         bookCategory VARCHAR(50) NOT NULL,
-        bookEditor VARCHAR(50) NOT NULL,
-        bookAvailabilityStatus VARCHAR(50) NOT NULL);";
+        bookEditor VARCHAR(50) NOT NULL);";
     $conn->connect()->exec($sqlCreateTableBook);
     echo "<br>Table created successfully<br>";
 

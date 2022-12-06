@@ -5,7 +5,7 @@ include_once('../Autoload.inc.php');
 
 <link rel="stylesheet" href="../CSSFiles/form.css">
 
-<!----------------------- Login Form ------------------------->
+<!----------------------- Add User Form ------------------------->
 
 <form name="newAccountForm" method="post" action="newAccount.php">
     <h3>Create my account</h3>
