@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <?php
-//include_once('../Autoload.inc.php');
-include_once('../Classes/dbManagement.class.php');
-include_once('../Classes/Address.class.php');
-include_once('../Classes/User.class.php');
-
+include_once('../Autoload.inc.php');
 ?>
 
 <link rel="stylesheet" href="../CSSFiles/form.css">
@@ -94,8 +90,10 @@ include_once('../Classes/User.class.php');
             <td colspan="2"><input type="submit" size=25 name="btnSubmit" onclick="return check(this.form)" value="Sign Up"></td>
         </tr>
     </table>
-    <a href="http://localhost/PublicLibraryManagement/Navigation/login.php"><p>Go back to login page</p></a>
-    
+    <a href="http://localhost/PublicLibraryManagement/Navigation/login.php">
+        <p>Go back to login page</p>
+    </a>
+
 </form>
 <br><br>
 
@@ -173,11 +171,18 @@ if (isset($_POST["btnSubmit"])) {
         $isComplete = false;
     }
 
-    $dbManagement = new dbManagement();
-
     if ($isComplete) {
         //Verify if the user already exist
-        $userAlreadyExist = $dbManagement->findUserOrAdmin($formUser->get_userEmail(), $formUser->get_userPassword(), $status);
+        if ($status == "Admin") {
+            $admin = new Admin();
+            $admin->set_userEmail($formUser->get_userEmail());
+            $userAlreadyExist = $admin->check_if_admin_exist();
+        } else {
+            $resident = new Resident();
+            $resident->set_userEmail($formUser->get_userEmail());
+            $userAlreadyExist = $resident->check_if_resident_exist();
+        }
+
         if ($userAlreadyExist) {
             echo ("This account seems to exist already, please go back on login page to connect.");
         } else {
@@ -190,11 +195,8 @@ if (isset($_POST["btnSubmit"])) {
             }
 
             //Create new user
-            if ($status == "Admin") {
-                $formUser->addUser($status);
-            } else {
-                $formUser->addUser($status);
-            }
+
+            $formUser->addUser($status);
         }
     }
 }

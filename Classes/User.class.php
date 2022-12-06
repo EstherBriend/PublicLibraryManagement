@@ -61,7 +61,6 @@ class user
 
    public function addUser($status)
    {
-
       $conn = new Connection();
       if($status == "Admin"){
          $sqlAddUser = "INSERT INTO " . $conn->get_dbName() . "." . TableName::ADMIN . "(adminFirstName, adminLastName, addressId, adminEmail, adminPassword)
@@ -73,6 +72,7 @@ class user
 
       $stmt = $conn->connect()->prepare($sqlAddUser);
       $stmt->execute();
-      echo $sqlAddUser;
+
    }
+
 }

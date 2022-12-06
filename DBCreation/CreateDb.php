@@ -1,7 +1,6 @@
 <?php
-
-include ('Autoload.php');
-include ("./Enums/TableName.enum.class.php");
+include('../Autoload.inc.php');
+include ("../Enums/TableName.enum.class.php");
 
 $conn = new Connection();
 

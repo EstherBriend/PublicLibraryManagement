@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <?php
-include('../Classes/dbManagement.class.php');
-session_start();
-?>
+include_once('../Autoload.inc.php');
+session_start(); ?>
+<!DOCTYPE html>
 
 <link rel="stylesheet" href="../CSSFiles/form.css">
 
@@ -44,12 +43,44 @@ session_start();
 
 <?php
 if (isset($_POST["btnSubmit"])) {
-    $email = $_POST["userEmail"];
-    $password = $_POST["userPassword"];
     $status = $_POST["typeOfUser"];
 
-    $dbManagement = new dbManagement();
-    $_SESSION["userId"]= $dbManagement->dbConnection($email, $password, $status);
-    $_SESSION{""}
+    if ($status == "Admin") {
+        //Connection for admin
+
+        // Retrieve form infos
+        $loggedAdmin = new Admin();
+        $loggedAdmin->set_userEmail($_POST["userEmail"]);
+        $loggedAdmin->set_userPassword($_POST["userPassword"]);
+
+        // Set session infos
+        if ($loggedAdmin->find_admin()) {
+            $adminInfos =  $loggedAdmin->find_admin();
+            $loggedAdmin->set_adminId($adminInfos["adminId"]);
+            $_SESSION["loggedAdmin"] = $loggedAdmin;
+        }
+
+        // Try to connect to the account
+        $loggedAdmin->connect_to_admin_account();
+        
+    } else {
+        // Connection for resident
+
+        // Retrieve form infos
+        $loggedResident = new Resident();
+        $loggedResident->set_userEmail($_POST["userEmail"]);
+        $loggedResident->set_userPassword($_POST["userPassword"]);
+
+        // Set session infos
+
+        if ($loggedResident->find_resident()) {
+            $residentInfos =  $loggedResident->find_resident();
+            $loggedResident->set_residentId($residentInfos["residentId"]);
+            $_SESSION["loggedResident"] = $loggedResident;
+        }
+
+        // Try to connect to the account
+        $loggedResident->connect_to_resident_account();
+    }
 }
 ?>
