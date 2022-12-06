@@ -1,9 +1,9 @@
 <?php
-include('Autoload.inc.php');
-include("./Enums/TableName.enum.class.php");
-include("./Enums/AvailabilityStatus.enum.php");
-include("./Enums/LiteraryGenre.enum.php");
-include("./Enums/LoansStatus.enum.php");
+include('../Autoload.inc.php');
+include("../Enums/TableName.enum.class.php");
+include("../Enums/AvailabilityStatus.enum.php");
+include("../Enums/LiteraryGenre.enum.php");
+include("../Enums/LoansStatus.enum.php");
 
 $conn = new Connection();
 

@@ -1,0 +1,26 @@
+.WecolmeMessage {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    color: lightslategrey;
+}
+
+
+.Loans {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+h4 {
+    color: salmon;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table,
+td {
+    border: 1px solid black;
+}

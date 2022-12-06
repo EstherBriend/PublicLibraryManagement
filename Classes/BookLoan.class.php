@@ -1,5 +1,9 @@
 <?php
+include_once('../Autoload.inc.php');
+include_once('../Enums/TableName.enum.class.php');
+
 class BookLoan{
+    
     private $loanId;
     private $residentId;
     private $inventoryId;
@@ -40,14 +44,34 @@ class BookLoan{
         $this->loanStatus = $status;
     }
 
-    public function getInventoryId()
+    public function get_inventoryId()
     {
         return $this->inventoryId;
     }
 
-    public function setInventoryId($inventoryId)
+    public function set_inventoryId($inventoryId)
     {
         $this->inventoryId = $inventoryId;
     }
+
+    //--------------- Methods  -------------------
+
+public function retrieve_book_title_and_author_from_inventory_id(){
+    $conn = new Connection();
+    $sqlSelectBookIdFromInventoryTable = "SELECT * FROM ".$conn->get_dbName().".".TableName::INVENTORY." WHERE inventoryId = ".$this->inventoryId.";";
+    $stmt = $conn->connect()->prepare($sqlSelectBookIdFromInventoryTable);
+    $stmt->execute();
+    $inventory = $stmt->fetch();
+
+    $sqlSelectBookTitleFromBookTable = "SELECT * FROM ".$conn->get_dbName().".".TableName::BOOK." WHERE bookId = ".$inventory["bookId"].";";
+    $stmt = $conn->connect()->prepare($sqlSelectBookTitleFromBookTable);
+    $stmt->execute();
+    $book = $stmt->fetch(); 
+
+    return $book["bookAuthor"].", ".$book["bookTitle"];
+
 }
+}
+
+
 ?>
