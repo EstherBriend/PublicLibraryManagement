@@ -1,4 +1,7 @@
 <?php
+include_once('../Autoload.inc.php');
+include_once('../Enums/TableName.enum.class.php');
+
 class Book{
     private $bookId;
     private $bookAuthor;
@@ -33,7 +36,7 @@ class Book{
         return $this->bookCategory;
     }
 
-    public function set_bookCategory(LiteraryGenre $category){
+    public function set_bookCategory($category){
         $this->bookCategory = $category;
     }
 
@@ -43,6 +46,30 @@ class Book{
 
     public function set_bookEditor($editor){
         $this->bookEditor = $editor;
+    }
+
+    //--------------- Methods  -------------------
+
+    public function check_if_book_exist(){
+        $conn = new Connection();
+        $sqlSelectBook = 'SELECT * FROM '.$conn->get_dbName().'.'.TableName::BOOK.' WHERE bookAuthor = "'.$this->bookAuthor.'" AND bookTitle = "'.$this->bookTitle.'" AND bookCategory = "'.$this->bookCategory.'" AND bookEditor = "'.$this->bookEditor.'";';
+        $stmt = $conn->connect()->prepare($sqlSelectBook);
+        $stmt->execute();
+        $resultSelectBook = $stmt->fetch();
+
+        if($resultSelectBook){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function add_new_book(){
+        $conn = new Connection();
+        $sqlAddBook = 'INSERT INTO '. $conn->get_dbName() . '.' . TableName::BOOK. '(bookAuthor, bookTitle, bookCategory, bookEditor)
+        VALUES ("'.$this->bookAuthor.'", "'.$this->bookTitle.'", "'.$this->bookCategory.'", "'.$this->bookEditor.'");';
+        $stmt = $conn->connect()->prepare($sqlAddBook);
+        $stmt->execute();
     }
 }
 ?>
