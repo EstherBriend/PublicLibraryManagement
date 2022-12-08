@@ -1,0 +1,27 @@
+table{
+    width : 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border : 2px solid salmon;
+}
+td{
+    border : 1px solid lightslategrey;
+    padding: 5px;
+}
+
+input[type=submit] {
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: coral;
+    color: whitesmoke;
+    border: none;
+    font-size: 12px;
+    border-radius: 25px;;
+
+}
+
+td:last-child{
+    border: none;
+}
