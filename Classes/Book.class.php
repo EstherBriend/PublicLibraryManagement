@@ -71,5 +71,14 @@ class Book{
         $stmt = $conn->connect()->prepare($sqlAddBook);
         $stmt->execute();
     }
+
+    public function retrieve_all_books(){
+        $conn = new Connection();
+        $sqlRetrieveAllBooks = 'SELECT * FROM '.$conn->get_dbName().'.'.TableName::BOOK.';';
+        $stmt = $conn->connect()->prepare($sqlRetrieveAllBooks);
+        $stmt->execute();
+        $resultRetrieveAllBooks = $stmt->fetchAll();
+        return $resultRetrieveAllBooks;
+    }
 }
 ?>

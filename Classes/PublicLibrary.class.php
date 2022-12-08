@@ -26,5 +26,16 @@ class PublicLibrary{
         $this->libraryAddress = $address;
     }
     
+       //--------------- Methods  -------------------
+
+   public function retrieve_all_libraries(){
+    $conn = new Connection();
+    $sqlRetrieveAllLibraries = 'SELECT * FROM '.$conn->get_dbName().".".TableName::LIBRARY.';';
+    $stmt = $conn->connect()->prepare($sqlRetrieveAllLibraries);
+    $stmt->execute();
+    $resultRetrieveAllLibraries = $stmt->fetchAll();
+
+    return $resultRetrieveAllLibraries;
+   }
 }
 ?>

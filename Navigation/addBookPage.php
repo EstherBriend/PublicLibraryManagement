@@ -45,9 +45,10 @@ include_once('../Enums/LiteraryGenre.enum.php');
 $isComplete = true;
 $formBook = new Book();
 if (isset($_POST["btnSubmit"])) {
-    //Verify fullfiled fiels
+    
     $formBook->set_bookCategory($_POST["category"]);
-
+    
+    //Verify fullfiled fiels
     if (!empty($_POST["author"])) {
         $formBook->set_bookAuthor($_POST["author"]);
     } else {
