@@ -1,12 +1,28 @@
 .TopBar{
     border-bottom: 1px solid salmon;
-    padding: 10px;
     text-align: right;
+    margin-bottom: 20px;
+    
+}
 
+ul{
+    list-style-type: none;
+    float : right;
 }
-img{
-margin-right: 92%;
+
+.Logo img{
+    float: left;
 }
-a{
+
+li a{
     color: lightslategrey;
+    text-decoration: none;
+    padding-left: 5px;
 }
+
+li a:hover{
+    color: salmon;
+}
+
+
+

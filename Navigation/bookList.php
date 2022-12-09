@@ -2,10 +2,12 @@
 <?php
 include_once('../Autoload.inc.php');
 include_once('../Enums/LiteraryGenre.enum.php');
+include_once('adminHeader.php');
 ?>
 
 <link rel="stylesheet" href="../CSSFiles/bookList.css">
 
+<h3>Books</h3>
 <Table>
     <th>Author</th>
     <th>Title</th>
