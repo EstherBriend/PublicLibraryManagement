@@ -2,6 +2,7 @@
 <?php
 include_once('../Autoload.inc.php');
 include_once('../Enums/LiteraryGenre.enum.php');
+include_once('adminHeader.php');
 ?>
 
 <link rel="stylesheet" href="../CSSFiles/form.css">
@@ -9,7 +10,7 @@ include_once('../Enums/LiteraryGenre.enum.php');
 <!----------------------- Add Book Form ------------------------->
 
 <form name="newBookForm" method="post" action="addBookPage.php">
-    <h3>Create my account</h3>
+    <h3>Add new book</h3>
     <p>Fields with an asterix are mandatory</p>
     <table>
         <tr>

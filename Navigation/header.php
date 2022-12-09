@@ -9,8 +9,14 @@
 <body>
 
     <div class=TopBar>
-        <img src="../Img/bookIcon_small.png" alt="book icon">
-        <a href="login.php">Sign out</a>
+
+        <ul>
+        <div class = "Logo"><a href="residentPage.php"><img src="../Img/bookIcon_small.png" alt="book icon"></a></div>
+            <li><a href="login.php">Sign out</a></li>
+        </ul>
+
     </div>
+
+    <br>
 
 </body>

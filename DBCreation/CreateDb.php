@@ -72,7 +72,7 @@ try{
     $sqlCreateTableBook = "CREATE TABLE IF NOT EXISTS ".$conn->get_dbName().".".TableName::BOOK."(
         bookId INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         bookAuthor VARCHAR(50) NOT NULL,
-        bookTitle VARCHAR(50) NOT NULL,
+        bookTitle VARCHAR(150) NOT NULL,
         bookCategory VARCHAR(50) NOT NULL,
         bookEditor VARCHAR(50) NOT NULL);";
     $conn->connect()->exec($sqlCreateTableBook);
